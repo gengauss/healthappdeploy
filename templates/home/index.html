@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DigixHealth</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+{% include "home/navbar.html" %}
+<div class="container-fluid">
+    <div class="row" id="banner" >
+        <div class="col-lg-6" id="banner-introduction-text">
+            <h3>自分の<span style="color:#ff9898;">健康状態</span>、<br>気にしてますか？</h3><br>
+            <p>このプロジェクトはSDGsの目標3：「2030年までに、非感染性疾患による若年死亡率を、予防や治療を通じて３分の１減少させ、精神保健及び福祉を促進する。」</p>
+            <br>
+            <a onclick="window.location.href = '/aboutus'">About Us</a>
+        </div>
+        <div class="col-lg-6">
+            <img id="banner-mockup-image" class="img-fluid" src="{% static 'img/banner_illustration.png' %}" alt="Mockup Image">
+        </div>
+
+    </div>
+    <div class="container">
+        <div class="col-xs-12"><h3 style="text-align: center; font-size: 40px;">私たちと一緒に、<span style="color:#ff9898;">健康的な生活</span>を送りませんか？</h3></div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class= "three-functions-cards">
+                <img class="img-fluid" class="function-icon" src="{% static 'img/book_icon.png' %}">
+                <h3>HealthBook</h3>
+                <p>症状や要因などに応じて、様々な身体的疾患や精神的疾患の辞書を提供します。<span style="opacity: 0;">sssssssssssssss</span></p>
+                <a href="{% url 'healthbook' %}">詳細</a>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class= "three-functions-cards">
+                <img class="img-fluid" class="function-icon" src="{% static 'img/visualize_icon.png' %}">
+                <h3>Visualization</h3>
+                <p>特定の疾患のオープンデータをチャートやグラフなどで可視化します。<span style="opacity: 0;">sssssssssssssss</span></p>
+                <a href="{% url 'visualization' %}">詳細</a>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class= "three-functions-cards">
+                <img class="img-fluid" class="function-icon" src="{% static 'img/tracker_icon.png' %}">
+                <h3>Health Tracker</h3>
+                <p>Health Forumや Calories Tracker、Goal Trackerなど健康的な生活の確立に役立ちます。 </p>
+                <a href="{% url 'healthtracker' %}">ログイン</a>
+            </div>
+          </div>
+        </div>
+    </div>    
+    </div>
+{% include "home/footer.html" %}
+</body>
+
+</html>

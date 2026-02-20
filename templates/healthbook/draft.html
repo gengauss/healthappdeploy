@@ -1,0 +1,162 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Health Books</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+{% include "home/navbar.html" %}
+<div class="vertical-navbar">
+    <ul>
+        <li id="mental-health-button">Mental Health</li>
+        <li id="physical-health-button">Physical Health</li>
+    </ul>
+</div>
+<div class="main" id="healthbook">
+    <div class="container-fluid">
+        <div id="mental-health">
+        <h2>Most viewed articles</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="article" id="big-article">
+                    <img class="img-thumbnail" src="{% static 'img/note.png' %}" alt="thumbnail"><br>
+                    <h4>Depression</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                    <p id="small-text">12345 views</p>
+                    <a>Read more</a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="article" id="big-article">
+                    <img class="img-thumbnail" src="{% static 'img/note.png' %}" alt="thumbnail"><br>
+                    <h4>Depression</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                    <p id="small-text">12345 views</p>
+                    <a>Read more</a>
+                </div>
+            </div>
+        </div>
+        <br>
+        <h2>Other articles</h2>
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <div class="article" id="small-articles">
+                    <img class="img-thumbnail" src="{% static 'img/note.png' %}" alt="thumbnail"><br>
+                    <h4>Depression</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                    <a>Read more</a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="article" id="small-articles">
+                    <img class="img-thumbnail" src="{% static 'img/note.png' %}" alt="thumbnail"><br>
+                    <h4>Depression</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                    <a>Read more</a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="article" id="small-articles">
+                    <img class="img-thumbnail" src="{% static 'img/note.png' %}" alt="thumbnail"><br>
+                    <h4>Depression</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                    <a>Read more</a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="article" id="small-articles">
+                    <img class="img-thumbnail" src="{% static 'img/note.png' %}" alt="thumbnail"><br>
+                    <h4>Depression</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                    <a>Read more</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="physical-health">
+        <h2>Most viewed articles</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="article" id="big-article">
+                    <img class="img-thumbnail" src="{% static 'img/note.png' %}" alt="thumbnail"><br>
+                    <h4>Diabetes</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                    <p id="small-text">12345 views</p>
+                    <a>Read more</a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="article" id="big-article">
+                    <img class="img-thumbnail" src="{% static 'img/note.png' %}" alt="thumbnail"><br>
+                    <h4>Diabetes</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                    <p id="small-text">12345 views</p>
+                    <a>Read more</a>
+                </div>
+            </div>
+        </div>
+        <br>
+        <h2>Other articles</h2>
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <div class="article" id="small-articles">
+                    <img class="img-thumbnail" src="{% static 'img/note.png' %}" alt="thumbnail"><br>
+                    <h4>Diabetes</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                    <a>Read more</a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="article" id="small-articles">
+                    <img class="img-thumbnail" src="{% static 'img/note.png' %}" alt="thumbnail"><br>
+                    <h4>Diabetes</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                    <a>Read more</a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="article" id="small-articles">
+                    <img class="img-thumbnail" src="{% static 'img/note.png' %}" alt="thumbnail"><br>
+                    <h4>Depression</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                    <a>Read more</a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="article" id="small-articles">
+                    <img class="img-thumbnail" src="{% static 'img/note.png' %}" alt="thumbnail"><br>
+                    <h4>Depression</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                    <a>Read more</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function(){
+  $("#physical-health-button").click(function(){
+    $("#physical-health").css({"display": "block"});
+    $("#mental-health").css({"display": "none"});
+    $("#physical-health-button").css({"color": "#2E9D65"});
+    $("#mental-health-button").css({"color": "#ACACAC"});
+  });
+  $("#mental-health-button").click(function(){
+    $("#mental-health").css({"display": "block"});
+    $("#physical-health").css({"display": "none"});
+    $("#mental-health-button").css({"color": "#2E9D65"});
+    $("#physical-health-button").css({"color": "#ACACAC"});
+  });
+});
+</script>
+</body>
+
+</html>

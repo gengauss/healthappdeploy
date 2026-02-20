@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Depression - Visualization</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdn.bokeh.org/bokeh/release/bokeh-2.2.1.min.js"></script>
+    <style>
+        p{
+            font-size: 18px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+{% include "home/navbar.html" %}
+{% block content %}
+<div class="main">
+<div class="container">
+    <div class="row">
+        <h3>Data description:</h3>
+    </div>
+    <div class="row">
+        <p>Raw data - factors associated with depression</p>
+        <p>This raw data is a result of the questionnaire completed by 230 participants (pregnant adolescents) in the study of "predictive statistical model for the factor associated with prenatal depression among pregnant adolescents in Maha sarakham province, Thailand".</p>
+        <p>Data source: <a href="https://figshare.com/articles/Raw_data_-_factors_associated_with_depression/10072898/2?file=18520358">https://figshare.com/articles/Raw_data_-_factors_associated_with_depression/10072898/2?file=18520358</a></p>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            {{ div_box | safe }}
+            {{ script_box | safe }}
+            <p>Does education levels affect depression? Even though it looks like secondary school graduates have the higher depression rate, it does not prove that education affects mental health since other educational levels have almost similar rates.</p>
+        </div>
+        <div class="col-sm-6">
+            {{ div_bar | safe }}
+            {{ script_bar | safe }}
+            <p>In the given bar graph, the hypothesis was asked whether occupation types (unemployment, agriculturist, salaryman or salesman) can affect the total depression rate. As can be seen, the depression rate was similar in any occupation type.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            {{ div_dist | safe }}
+            {{ script_dist | safe }}
+        </div>
+        <div class="col-sm-6">
+            {{ div_hm | safe }}
+            {{ script_hm | safe }}
+            <p>Symptom checking heatmap for depression. The darker the color, the more absent is the rate. Example: Difficulty sleeping symptom has bright ‘Sometimes’ option and pure black “not at all’.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+</div>
+</body>
+
+</html>

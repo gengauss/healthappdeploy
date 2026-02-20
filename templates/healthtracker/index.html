@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HealthTracker</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+{% include "home/navbar.html" %}
+{% if user.is_authenticated %}
+<div class="main">
+    <div class="container-fluid" style="margin-bottom: 50px;">
+        <div class="row justify-content-center" style="margin-bottom:30px ;">
+            <img id="profile-picture" class="img-fluid" class="function-icon" src="{% static 'img/avatar_placeholder.png' %}">
+        </div>
+        <div class="row justify-content-center">
+            <h2>こんにちは！ {{ request.user }}</h2>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-md-3">
+                <div class="article" id="big-article">
+                    <h4><a href="{% url 'forum' %}">Health Forum</a></h4>
+                    <p>健康や病気などの気になることの質問が自由にでき、Q&Aのやり取りをする場です。
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="article" id="big-article">
+                    <h4><a href="{% url 'caloriestracker' %}">Calories Tracker</a></h4>
+                    <p><span style="opacity: 0;"></span><br>あなたの摂取カロリーの管理に役立ちます。<span style="opacity: 0;"></span>
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="article" id="big-article">
+                    <h4><a href="{% url 'goalstracker' %}">Health Goals Tracker</a></h4>
+                    <p>あなた自身の健康の目標を設定出来ます。リマインドに役立ちます。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% else %}
+    <h1>You have to login first</h1>
+    <a class="nav-link" href="{% url 'login' %}">Login</a>
+{% endif %}
+{% include "home/footer.html" %}
+</body>
+
+</html>

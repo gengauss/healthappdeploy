@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Suicide rate - Visualization</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdn.bokeh.org/bokeh/release/bokeh-2.2.1.min.js"></script>
+    <style>
+        p{
+            font-size: 18px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+{% include "home/navbar.html" %}
+{% block content %}
+<div class="main">
+<div class="container">
+    <div class="row">
+        <h3>Data description:</h3>
+        <p>This compiled dataset pulled from four other datasets linked by time and place, and was built to find signals correlated to increased suicide rates among different cohorts globally, across the socio-economic spectrum.</p>
+    </div>
+    <div class="row">
+        <p>Data source: <a href="https://www.kaggle.com/russellyates88/suicide-rates-overview-1985-to-2016">https://www.kaggle.com/russellyates88/suicide-rates-overview-1985-to-2016</a></p>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            {{ div_gender | safe }}
+            {{ script_gender | safe }}
+        </div>
+        <div class="col-sm-6">
+            {{ div_age | safe }}
+            {{ script_age | safe }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            {{ div_country | safe }}
+            {{ script_country | safe }}
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-sm-6">
+            {{ div_age_range | safe }}
+            {{ script_age_range | safe }}
+        </div>
+        <div class="col-sm-6">
+            {{ div_100k | safe }}
+            {{ script_100k | safe }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            {{ div_generation | safe }}
+            {{ script_generation | safe }}
+        </div>
+        <div class="col-sm-6">
+            {{ div_g | safe }}
+            {{ script_g | safe }}
+        </div>
+    </div>
+</div>
+{% endblock %}
+</div>
+</body>
+
+</html>

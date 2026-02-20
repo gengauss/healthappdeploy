@@ -1,0 +1,504 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900&display=swap');
+
+body {
+    font-family: 'M PLUS Rounded 1c', sans-serif !important;
+    line-height: 2 !important;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none !important;
+    color: #ffffff;
+}
+
+ul {
+    list-style: none;
+}
+
+h1 {
+    color: green;
+}
+
+.main {
+    padding: 8%;
+    padding-top: 130px;
+}
+.article h4 a{
+    color: #ff9898;
+    transition: 0.3;
+}
+
+.main p {
+    font-weight: 300;
+    font-size: 20px;
+}
+
+.main h1 {
+    color: #2E9D65;
+    margin-bottom: 2%;
+}
+
+/*styling contact form*/
+#contact_form {
+    margin-bottom: 5%;
+}
+
+#contact_form label {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+#contact_form input {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+/*styling calories tracker*/
+.nav-tracker .container-fluid #normal{
+    width: 100%;
+    margin-bottom: 20px;
+    height: auto;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 30px;
+    border: 2px solid #ff9898;
+    font-size: 20px;
+    font-weight: 500;
+    color: #ffffff !important;
+    display: block;
+    background-color: #ff9898;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.nav-tracker .container-fluid #normal:hover,.nav-tracker .container-fluid #normal:active{
+    border-color: #ce7979;
+    background-color: #ce7979;
+    cursor: pointer;
+}
+#add-food-button{
+    width: 100%;
+    margin-bottom: 10px;
+    margin-top: 30px;
+    height: auto;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 30px;
+    border: 2px solid #2E9D65;
+    font-size: 20px;
+    font-weight: 500;
+    color: #2E9D65;
+    display: block;
+    transition: 0.3s;
+    cursor: pointer;
+}
+#add-food-button:hover{
+    border-radius: 30px;
+    border: 2px solid #FFFF43;
+    font-size: 20px;
+    font-weight: 500;
+    background-color: #FFFF43;
+}
+#calories-amount{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border: 0px;
+}
+#calories-amount p{
+    font-size: 50px;
+    font-weight: 700;
+}
+th{
+    font-size: 20px;
+    font-weight: 600;
+}
+.small-description{
+    font-size: 15px;
+    font-weight: 400;
+}
+/*styling navigation bar */
+.navbar {
+    padding-top: 0;
+    width: 100%;
+    float: right;
+    height: 5em;
+    /* background-color: #66E7A2; */
+    background-color: #2E9D65;
+    font-size: 18px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #ffffff !important;
+    transition: 0.3s;
+}
+
+.navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:active {
+    color: #ff9898 !important;
+    text-decoration: underline;
+}
+
+/*styling landing page banner */
+.container-fluid #banner {
+    background-color: #2E9D65;
+    padding-top: 10%;
+    padding-bottom: 5%;
+    margin-bottom: 8%;
+}
+
+#banner-introduction-text {
+    color: #ffffff;
+    padding-top: 6%;
+    padding-left: 8%;
+    line-height: 1.6;
+}
+
+#banner-introduction-text h3 {
+    font-size: 40px;
+    font-weight: 500;
+}
+
+#banner-introduction-text p {
+    font-weight: 300;
+    font-size: 20px;
+}
+
+#banner-introduction-text a {
+    text-decoration: none;
+    text-align: center;
+    border-radius: 30px;
+    border: 2px solid #ff9898;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 2%;
+    color: #ffffff;
+    display: block;
+    width: 30%;
+    background-color: #ff9898;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+#banner-introduction-text a:hover {
+    border-color: #ce7979;
+    background-color: #ce7979;
+    cursor: pointer;
+}
+
+#banner-mockup-image {
+    width: 100%;
+    height: auto;
+}
+
+#banner-introduction-text button {
+    font-weight: 400;
+}
+
+/* Styling 3 functions card of homepage */
+.three-functions-cards {
+    margin: 5%;
+    border-radius: 25px;
+    border: 2px solid #2E9D65;
+    text-align: center;
+    padding: 10%;
+    box-shadow: none;
+    margin-top: 10%;
+}
+
+.three-functions-cards img {
+    display: block;
+    width: 40%;
+    margin: auto;
+}
+
+.three-functions-cards h3 {
+    color: #2E9D65;
+    margin-top: 10%;
+}
+
+.three-functions-cards p {
+    font-size: 20px;
+    line-height: 1.6;
+    margin: 10%;
+}
+
+.three-functions-cards a {
+    border-radius: 25px;
+    border: 2px solid #2E9D65;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 4%;
+    color: #2E9D65;
+    display: block;
+    width: 50%;
+    margin: auto;
+    background-color: #f1f1f1;
+}
+
+.three-functions-cards a:hover {
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #2E9D65;
+    cursor: pointer;
+}
+
+/* Styling vertical navbar */
+.vertical-navbar {
+    z-index: 99;
+    border: 20px;
+    background-color: #EFEFEF;
+    width: 20%;
+    position: fixed;
+    height: 100%;
+    padding-top: 150px;
+    overflow-x: scroll;
+}
+
+.vertical-navbar ul {
+    padding: 5%;
+    margin: auto;
+    list-style: none;
+}
+
+.vertical-navbar ul li {
+    display: block;
+    color: #ACACAC;
+    margin: 20px;
+    font-size: 18px;
+    font-weight: 600;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.vertical-navbar ul li:hover, .vertical-navbar ul li:active {
+    color: #2E9D65
+}
+
+/* Styling healthbook */
+#healthbook {
+    width: 80%;
+    height: 100%;
+    float: right;
+}
+
+#healthbook .article img {
+    margin-bottom: 20px;
+    width: 100%;
+    height: 200px;
+}
+
+#healthbook #big-article p {
+    font-size: 18px;
+}
+
+#big-article {
+    margin-bottom: 6%;
+    position: relative;
+}
+
+.article {
+    background-color: #ffffff;
+    padding: 10%;
+    border-radius: 30px;
+    border: 2px solid #2E9D65;
+    cursor: pointer;
+    font-size: 20px;
+    transition: 0.3s;
+    color: #2E9D65 ;
+    text-align: center;
+    text-decoration: none;
+}
+
+.article:hover {
+    background-color: #2E9D65;
+    border: 2px solid #2E9D65;
+    cursor: pointer;
+    color: #f1f1f1;
+    scale: 0.5;
+    text-decoration: none !important;
+}
+
+#healthbook h2 {
+    color: #2E9D65;
+    margin-bottom: 30px;
+}
+
+#small-text {
+    font-size: 15px !important;
+}
+
+#small-articles {
+    margin-bottom: 10%;
+}
+
+#mental-health {
+    display: block;
+}
+
+#mental-health-button {
+    color: #2E9D65;
+}
+
+#physical-health {
+    display: none;
+}
+
+/* Float four columns side by side */
+.column {
+    float: left;
+    width: 30%;
+    padding: 0 10px;
+}
+
+#form-healthbook {
+    border: 2px solid #2E9D65;
+    margin-bottom: 30px;
+    width: 80%;
+    border-radius: 30px;
+}
+
+#search {
+    margin: 0;
+    padding-right: 20px;
+    width: 5%;
+    height: auto;
+}
+
+.detail-disease {
+    font-size: 18px;
+}
+
+.detail-disease li {
+    margin-top: 40px;
+}
+
+#profile-picture{
+    width: 160px;
+    height: auto;
+}
+/* Remove extra left and right margins, due to padding */
+
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+#footer{
+    color: #f1f1f1;
+    background-color: gray;
+    padding:8%;
+    margin-top: 200px;
+}
+#logo img{
+    width: 50%;
+}
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+    /*styling landing page banner */
+    #banner {
+        margin-bottom: 30%;
+    }
+
+    .container-fluid #banner {
+        padding-top: 35%;
+    }
+
+    #banner-introduction-text a {
+        margin: auto;
+        width: 50%;
+    }
+
+    .three-functions-cards {
+        margin: 5%;
+    }
+
+    .main {
+        padding-top: 35%;
+    }
+    #navbarSupportedContent{
+        border-radius: 10px;
+        float: none;
+        background-color:rgba(0, 0, 0, 0.9);
+        padding: 40px;
+    }
+    #navbarSupportedContent form{
+        margin-top: 20px;
+    }
+    #navbarSupportedContent ul li{
+        margin-top: 10px;
+    }
+
+    .sub-navbar {
+        padding-top: 26%;
+    }
+
+    .vertical-navbar {
+        width: 100%;
+        height: 150px;
+        padding: 0;
+        padding-top: 110px;
+    }
+
+    .vertical-navbar ul {
+        padding: 0;
+        text-align: center;
+        margin: auto;
+        list-style: none;
+    }
+
+    .vertical-navbar ul li {
+        display: inline;
+    }
+
+    #healthbook {
+        padding-top: 200px;
+        width: 100%;
+        height: 100%;
+        float: none;
+    }
+
+    .main {
+        padding: 5%;
+        padding-top: 130px;
+    }
+
+    #banner-introduction-text {
+        padding: 5%;
+        margin-bottom: 15%;
+    }
+
+    #banner-mockup-image {
+        width: 100%;
+        height: auto;
+    }
+
+    .column {
+        width: 100%;
+        display: block;
+        margin-bottom: 20px;
+    }
+    #logo{
+        width: 78%;
+    }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 1000px) {
+    #navbarSupportedContent{
+        border-radius: 10px;
+        float: none;
+        background-color:rgba(0, 0, 0, 0.9);
+        padding: 40px;
+    }
+}
+
+@media (min-width: 1000px) and (max-width: 1500px) {
+   #logo {
+       width: 10% !important;
+}
+    #logo img{
+        width: 130%;
+    }
+}

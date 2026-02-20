@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Terms of Use and Privacy Policy</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+{% include "home/navbar.html" %}
+<div class="main">
+<h1>プライバシーポリシー</h1>
+<h2>個人情報</h2>
+    <p>「個人情報」とは，個人情報保護法にいう「個人情報」を指すものとし，生存する個人に関する情報であって，当該情報に含まれる氏名，生年月日，住所，電話番号，連絡先その他の記述等により特定の個人を識別できる情報及び容貌，指紋，声紋にかかるデータ，及び健康保険証の保険者番号などの当該情報単体から特定の個人を識別できる情報（個人識別情報）を指します。</p>
+<h2>個人情報の収集方法</h2>
+    <p>ユーザーが利用登録をする際に氏名、メールアドレス，個人情報をお尋ねすることがあります。</p>
+<h2>個人情報を収集・利用する目的</h2>
+    <p>当社が個人情報を収集・利用する目的は，以下のとおりです。</p>
+    <ol>
+        <li>本サービスのに役立てるため</li>
+        <li>本サービスに関するお問い合わせ等への対応のため</li>
+        <li>ユーザーデータを分析し、講義目標を達成するため</li>
+    </ol>
+<h2>個人情報の第三者提供</h2>
+    <p>あらかじめユーザーの同意を得ることなく，第三者に個人情報を提供することはありません。</p>
+<h2>プライバシーポリシーの変更</h2>
+    <p>本ポリシーの内容は，法令その他本ポリシーに別段の定めのある事項を除いて，ユーザーに通知することなく，変更することができるものとします。</p>
+</div>
+{% include "home/footer.html" %}
+</body>
+</html>

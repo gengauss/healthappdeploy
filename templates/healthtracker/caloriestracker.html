@@ -1,0 +1,100 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calories Tracker</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+{% include "home/navbar.html" %}
+
+<div class="main">
+{% if user.is_authenticated %}
+<div class="nav-tracker">
+    <div class="container-fluid" style="margin-top: 20px; margin-bottom: 50px;">
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-6 col-lg-3" ><a id="normal" href="{% url 'caloriestracker' %}">記録</a></div>
+            <div class="col-12 col-sm-6 col-lg-3" ><a id="normal" href="{% url 'profile' %}">ゴール管理</a></div>
+            <div class="col-12 col-sm-6 col-lg-3" ><a id="normal" href="{% url 'add_food' %}">Food List</a></div>
+            <div class="col-12 col-sm-6 col-lg-3" id="add-food-button" style="margin-top: 0; margin-bottom: 20px;"><a href="{% url 'select_food' %}">リストから追加</a></div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="card text-white text-center mt-4" style="border-radius: 20px;">
+
+        <div class="card-body">
+
+            <p class="card-text text-center pt-3" style="font-size:35px; color:red; font-weight: 700;">
+                {% if calorie_goal_status > 0 %}
+                    目標まであと {{ calorie_goal_status }} カロリー不足しています
+                {% elif calorie_goal == 0 %}
+                    <a href="{% url "profile" %}"> 今日の目標カロリーを入力しましょう</a>
+                {% else %}
+                    目標まであと {{ over_calorie }} カロリー超過しています
+                {% endif %} </p>
+
+        </div>
+
+    </div>
+    <div class="row" style="margin-top: 8%; border-top: solid 2px gray;">
+        <div class="col-lg-6">
+            <div>
+                <div class="col-12 item " style="position: sticky;">
+                    <div class="card item-card card-block" id="calories-amount" style="background-color: #a6a6a6; color: #ffffff; padding: 20px;">
+                        <h5 class="card-title mt-3 mb-3 text-center">今日の摂取カロリー</h5>
+                        <p class="card-text text-center">{{ total_calorie }} kcal</p>
+                    </div>
+                </div>
+                <div class="col-12 item" id="calories-amount">
+                    <div class="card item-card card-block mt-sm-2 mt-lg-0" style="background-color: #FFFF43; padding: 20px;">
+                        <h5 class="card-title  mt-3 mb-3 text-center">目標</h5>
+                        <p class="card-text text-center">{{ calorie_goal }} kcal</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class=col-lg-6 style="margin-top: 30px;">
+            <h1 class="headline text-center mt-auto mb-auto">摂取した食べ物</h1>
+            <div class="row justify-content-center">
+            <div class="col-10 col-md-5" id="add-food-button" style="color: #ffffff !important;"><a href="{% url 'select_food' %}">リストから追加</a></div>
+            </div>
+            <p style="font-size:15px; font-weight: 500; margin: auto; text-align: center;"> <span style="color:  #ff9898;">Food List</span>から追加する</p>
+    <div class="container table-responsive py-5" style="padding: 0; padding-top: 25px !important;">
+        <table class="table table-bordered table-hover">
+            <thead class="thead-dark">
+            <tr class="text-center">
+                <th scope="col">食料</th>
+                <th scope="col">カロリー</th>
+                <th scope="col">量</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for food in food_selected_today %}
+                <tr class="text-center" style="font-size: 18px;">
+                    <td style="font-weight: 600;"> {{ food.food.name }}</td>
+                    <td> {{ food.calorie_amount }}</td>
+                    <td> {{ food.amount }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+        </div>
+    </div>
+
+</div>
+{% else %}
+    <h1>You have to login first</h1>
+    <a class="nav-link" href="{% url 'login' %}">Login</a>
+{% endif %}
+</div>
+</body>
+
+</html>

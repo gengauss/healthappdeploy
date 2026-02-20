@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Forum</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/all.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+{% include "home/navbar.html" %}
+<div class="main">
+{% if user.is_authenticated %}
+<div class="container-fluid">
+  <div class="row">
+    <h1 class="col-12 col-md-8">{{ question.title }}</h1>
+{#    <div class="col-12 col-md-4">#}
+{#      <div style="float: right;">#}
+{#      <a  style="margin-left:20px;" href="{% url 'update' question.id %}">#}
+{#        編集#}
+{#      </a>#}
+{#      <a  style="margin-left:20px;" href="{% url 'delete' question.id %}" class="btn btn-danger btn-xs">#}
+{#        消す#}
+{#      </a>#}
+{#      </div>#}
+    </div>
+  </div>
+    <small>[{{ question.posted_at }}]</small>
+    <div style="margin-top: 20px; font-size: 18px;">
+      {{ question.text | linebreaksbr }}
+    </div>
+    <div style="margin-top: 20px;">
+    <a href="{% url 'like' question.id %}" class="btn btn-outline-dark btn-sm">いいね！: {{ question.like }}</a>
+    </div>
+    <h2 style="margin-top: 40px;">コメント</h2>
+    <form action="{% url 'detail' question.id %}" method="post">
+    {% csrf_token %}
+    <div class="form-group" style="margin-top: 10px;">
+        <textarea id="textInput" name="text" class="form-control" placeholder="You can answer or comment here!" rows="3"></textarea>
+    </div>
+    <div class="form-group" style=" margin-bottom: 50px;font-size: 18px; font-weight: 600; ">
+        <button type="submit" class="btn btn-
+        primary">コメント</button>
+    </div>
+    </form>
+    {% if comments %}
+        {% for comment in comments %}
+        <div class="card mb-3" style="margin-top: 10px;">
+            <div class="card-header">
+            <small>{{ comment.posted_at }}</small>
+            </div>
+            <div class="card-body">
+            {{ comment.text | linebreaksbr }}
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p>コメントがまだありません。</p>
+    {% endif %}
+{% else %}
+    <h1>You have to login first</h1>
+    <a class="nav-link" href="{% url 'login' %}">Login</a>
+{% endif %}
+      </div>
+</div>
+</body>
+
+</html>

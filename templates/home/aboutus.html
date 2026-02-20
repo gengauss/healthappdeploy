@@ -1,0 +1,98 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>About us</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+{% include "home/navbar.html" %}
+<div class="main">
+<h1>私たちについて</h1>
+    <p>私たちはINIADの情報連携実習Ⅲの授業にて組んだチームです。<br>
+
+情報連携実習Ⅲとは？
+        INIADでは全員が1年次にプログラミングと語学を必修し、2年次からコースに分かれて学びます。3年生になると分かれたコースごとの学びを活かし、違うコースの人とチームを組んでプロジェクトを計画・実行する実習があります。そのチーム実習が情報連携実習Ⅲです。</p>
+    <a href="https://www.iniad.org/curriculum">参照：INIAD Cirriculum</a>
+    <p>この実習は全チームに共通のテーマが提示されます。今年度は、「SDGs の達成を助ける」となりました。これに沿ったプロジェクトをチームごとに企画・実行します。</p><br>
+    <p>SDGsとは？
+今世界中で起きている数々の問題を、国際社会が一丸となって解決すべく考えられた、17の目標のことです。2015年の9月に国連のサミットで採択されました。
+2030年までに世界全体で取り組むべきとされ、具体的な169のターゲットも指定されています。
+        <a href="https://www.unic.or.jp/activities/economic_social_development/sustainable_development/2030agenda/">参照：国連広報センター 2030アジェンダ</a>
+    </p>
+<p>チームプロジェクトの事前調査
+まず私たちのチームでは、身体的な健康および精神的な健康に対する意識のアンケートを実施し、INIAD生をはじめとした20代とその他の年代層との比較をすることで私たちが解決すべき課題を探しました。
+アンケートから
+１．ほとんどの人が健康的な生活を送っておらず、特に規則正しい食事や睡眠および運動習慣を維持していないこと
+２．精神的な健康や精神的な健康への意識の重要性を理解していても、精神疾患に対する知識が不足していること
+    が判明し、プロジェクトの目標を定めました。</p>
+<br>
+<p>私たちのチームの目標
+私たち情報連携実習Ⅲグループ3チーム2は、
+SDGsの目標3のターゲット3.4「2030年までに、非感染症疾患（NCD）による早期死亡を、予防や治療を通じて3分の1減少させ、精神保健および福祉を促進する。」の達成を助けることを目標とし、Digi×Healthを作成しました。
+</p>
+<br>
+<h1>メンバー</h1>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4">
+          <div class= "three-functions-cards">
+              <img class="img-fluid" class="function-icon" src="{% static 'img/member_images/Anh.png' %}">
+              <h3>Nguyen Quynh Anh</h3>
+              <h5>バックエンド開発者</h5>
+              <h5>データアナリスト</h5>
+              <p>主にバックエンドでウェブサイトの開発とサーバーのセットアップを担当しました。 ほかは、データの収集と分析にも参加しました。</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class= "three-functions-cards">
+              <img class="img-fluid" class="function-icon" src="{% static 'img/member_images/Tung.png' %}">
+              <h3>Khuc Manh Tung</h3>
+              <h5>デザイナー</h5>
+              <h5>フロントエンド開発者</h5>
+              <p>ＵＩ／ＵＸとフロントエンド開発を担当しています。ほかは、イラストやロゴもデザインもデザインしました。</p>
+              <br>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class= "three-functions-cards">
+              <img class="img-fluid" class="function-icon" src="{% static 'img/member_images/Nilufar.png' %}">
+              <h3>Nilufar Khaydarova</h3>
+              <h5>プロジェクトオーガナイザー</h5>
+              <h5>データアナリスト</h5>
+              <p>ウェブサイト、分析のためのデータ（分析とコンテンツの両方）を提供し、より良い説明のために視覚化を作成しました。</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 offset-md-2">
+          <div class= "three-functions-cards">
+              <img class="img-fluid" class="function-icon" src="{% static 'img/member_images/Natsuki.png' %}">
+              <h3>Okayasu Natsuki</h3>
+              <h5>プロジェクトマネージャー</h5>
+              <h5>コンテンツクリエーター</h5>
+              <p>話し合い時のファシリテーション、プロジェクトの進捗管理・計画修正の提案、コンテンツ内容の検討・情報収集・提案・日本語への翻訳など </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+            <div class= "three-functions-cards">
+                <img class="img-fluid" class="function-icon" src="{% static 'img/member_images/Negishi.png' %}">
+                <h3>Negishi Daisuke</h3>
+                <h5>調査分析</h5>
+                <h5>コンテンツクリエーター</h5>
+                <p>シビルシステムコース3年、データ収集分析、アンケート作成、Webサイトに掲載する内容をまとめました。 </p>
+                <br>
+            </div>
+          </div>
+      </div>
+</div>
+</div>
+{% include "home/footer.html" %}
+</body>
+</html>

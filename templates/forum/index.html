@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Forum</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+{% include "home/navbar.html" %}
+<div class="main">
+{% if user.is_authenticated %}
+    <h1>Health Forumへようこそ！</h1>
+    <div class="container-fluid">
+      <div class="row">
+    {% if questions %}
+    {% for question in questions %}
+    <div class="col-md-6">
+    <a href="{% url 'detail' question.id %}">
+    <div class="article" style="text-align: left; margin-top: 20px; margin-bottom: 20px;">
+    <h2 style="color: #ff9898;">{{ question.title }}</h2>
+    <small>{{ question.posted_at }}</small><br>
+    <small style="color: red; font-weight: 600;">いいね！: {{ question.like }}</small>
+    <div style="margin-top: 20px;">
+      {{ question.text | linebreaksbr }}
+    </div>
+    </div>
+    </a>
+    </div>
+    {% endfor %}
+    </div>
+    </div>
+    {% else %}
+    <p>質問がありません。</p>
+    {% endif %}
+    <div class="container-fluid" style="margin-top: 80px; ">
+    <h1>何か質問があれば</h1>
+    <form action="{% url 'forum' %}" method="post">
+      {% csrf_token %}
+      <div class="row" style="margin-bottom: 30px;">
+        <label style="font-size: 20px; font-weight: 600;" class="col-12" for="titleInput">タイトル</label>
+        <input class="col-12" style="border-radius: 10px;"id="titleInput" name="title" type="text" placeholder="タイトル入力">
+      </div>
+      <div class="row" style="margin-bottom: 30px; ">
+        <label style="font-size: 20px; font-weight: 600;" class="col-12" for="textInput">聞きたいことは？</label>
+        <textarea class="col-12"style="border-radius: 10px;" id="textInput" name="text" rows="3"></textarea>
+      </div>
+      <div class="col-4">
+        <button style=" margin:0; font-size: 18px; font-weight: 600; background-color: #2E9D65; color: #ffffff; border-radius: 3px;" type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+{% else %}
+    <h1>You have to login first</h1>
+    <a class="nav-link" href="{% url 'login' %}">Login</a>
+{% endif %}
+</div>
+</body>
+
+</html>

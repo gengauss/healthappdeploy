@@ -1,0 +1,134 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Survey - Visualization</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdn.bokeh.org/bokeh/release/bokeh-2.2.1.min.js"></script>
+<style>
+    p{
+        font-size: 18px;
+        margin-top: 30px;
+    }
+</style>
+</head>
+<body>
+{% include "home/navbar.html" %}
+{% block content %}
+<div class="main">
+<div class="container">
+    <div class="col">
+        <p>From August 14th to 27th, our team conducted a survey for help with our project. We have targeted different age groups and professions asking questions on their general physical health and mental health. Moreover, we have created and distributed the questionnaire not only in Japan, but also including countries such as Australia, Uzbekistan, China, Vietnam, Germany and so on.
+Overall, 286 people have participated in the survey from different parts of the world and of different ages. Considering that, we will do our best to generalize the health issue despite age, countries and anything else that makes people different.</p>
+    </div>
+    <div class="col">
+        <h4>General Questions</h4>
+        <div class="row">
+            <div class="col-sm-6">
+            {{ div_country | safe }}
+            {{ script_country | safe }}
+            </div>
+            <div class="col-sm-6">
+            {{ div_age | safe }}
+            {{ script_age | safe }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+            {{ div_job | safe }}
+            {{ script_job | safe }}
+            </div>
+            <div class="col-sm-6">
+            {{ div_gender | safe }}
+            {{ script_gender | safe }}
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="col">
+        <h4>Physical Health Questions</h4>
+        <div class="row">
+            <div class="col-sm-6">
+                {{ div_water | safe }}
+                {{ script_water | safe }}
+                <p>Water - it’s stated by scientists that normally people need 2 liters of water every day. Importance if 2 liters or 8 glasses. However, 51%(146 people) of participants of the survey drink less than 2 liters.</p>
+            </div>
+            <div class="col-sm-6">
+                {{ div_diet | safe }}
+                {{ script_diet | safe }}
+                <p>Eating too much red meat will cause heart attacks, cancer, and high cholesterol (Red meat - too much consumption. Protein deficiency, however, can cause fatty liver, skin degeneration, and much more severe infection effects(Protein deficiency symptoms). In our survey, participants that answered about their dietary habits show that 34.1 percent of them have a tendency to a more meat-focused diet.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                {{ div_meals | safe }}
+                {{ script_meals | safe }}
+                <p>Scientists say that frequent meals with small sizes are perfect to keep ourselves healthy. Our question asked specifically whether participants eat less or more than 3 meals a day. Out of 286 answers, fortunately 61.2% of them were 3 meals, however, 30% still eat less than that.</p>
+            </div>
+            <div class="col-sm-6">
+                {{ div_first_meal | safe }}
+                {{ script_first_meal | safe }}
+                <p>It was told that good lunch time is from 10 am to 2 pm (peak metabolism) that makes the right breakfast hours until 10 (Best time for breakfast). Most people eat breakfast after 9, later than working hours.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                {{ div_last_meal | safe }}
+                {{ script_last_meal | safe }}
+                <p>Having late dinner hours causes a rise in blood sugar, increase in cortisol - stress hormone and affects sleep patterns (Detrimental effects of late dinner). In the answers, only 15% of participants had dinner around 6 to 7 pm. Whereas disturbing 17% had dinner even after 9 pm.</p>
+            </div>
+            <div class="col-sm-6">
+                {{ div_same_meal | safe }}
+                {{ script_same_meal | safe }}
+                <p>Two Cambridge papers found that adults who consume meals at the same time every day were less obese and had better cholesterol and insulin levels, even though they consumed more calories overall. Such a habit patterns cannot be seen in the survey in 54% (156) of participants.</p>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="col">
+        <h4>Mental Health Questions</h4>
+        <div class="row">
+            <div class="col-sm-6">
+                {{ div_mental_important | safe }}
+                {{ script_mental_important | safe }}
+            </div>
+            <div class="col-sm-6">
+                {{ div_mental_effect | safe }}
+                {{ script_mental_effect | safe }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                {{ div_stress | safe }}
+                {{ script_stress | safe }}
+            </div>
+            <div class="col-sm-6">
+                {{ div_md | safe }}
+                {{ script_md | safe }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-8">
+                {{ div_nest | safe }}
+                {{ script_nest | safe }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-8">
+                {{ div_nest1 | safe }}
+                {{ script_nest1 | safe }}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+</div>
+</body>
+
+</html>

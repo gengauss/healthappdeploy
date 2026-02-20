@@ -1,0 +1,110 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calories Tracker</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+{% include "home/navbar.html" %}
+<div class="main">
+{% if user.is_authenticated %}
+<div class="nav-tracker">
+    <div class="container-fluid" style="margin-top: 20px; margin-bottom: 50px;">
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-6 col-lg-3" ><a id="normal" href="{% url 'caloriestracker' %}">記録</a></div>
+            <div class="col-12 col-sm-6 col-lg-3" ><a id="normal" href="{% url 'profile' %}">ゴール管理</a></div>
+            <div class="col-12 col-sm-6 col-lg-3" ><a id="normal" href="{% url 'add_food' %}">Food List</a></div>
+            <div class="col-12 col-sm-6 col-lg-3" id="add-food-button" style="margin-top: 0; margin-bottom: 20px;"><a href="{% url 'select_food' %}">リストから追加</a></div>
+        </div>
+    </div>
+</div>
+    <div class="container-fluid">
+        <div class="row mt-4 mb-4 justify-content-center">
+            <div class="col-12 col-md-8 col-lg-7 card card-body">
+                <div class="app-title">
+
+                    <h1 class="text-center profile-text mt-2">こんにちは！ {{ request.user }} </h1>
+
+                </div>
+
+                <form method="POST" action="" class="login-form pt-4" style="align-items: center;">
+                    {% csrf_token %}
+                    {% for field in form %}
+                        <h3 style="width: 100%; float: left; text-align: center;">今日のカロリー目標をセットしよう！</h3>
+                        <div style="width: 30%; float:left; margin-right: 35%; margin-left: 35%;">{{ field }}</div>
+                    {% endfor %}
+                    <input class="btn login_btn profile-submit ml-3" style="width: 40%; margin-top: 25px; margin-left: 30% !important; font-size: 20px; font-weight: 600;" type="submit" value="Set!">
+
+                </form>
+            </div>
+
+            <div class="col-lg-7" style="margin-top:70px; padding-bottom: 70px; border-bottom: solid 2px gray;">
+                <h1 class="text-center headline pb-2">今までの記録</h1>
+                <table class="table text-center">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">日付</th>
+                        <th scope="col">摂取カロリー</th>
+                        <th scope="col">目標カロリー</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for record in records %}
+                        <tr  style="font-size: 18px;">
+                            <td style="font-weight: 600;">{{ record.date }}</td>
+                            <td>{{ record.total_calorie }}</td>
+                            <td>{{ record.calorie_goal }}</td>
+
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
+
+        <h1 class="text-center headline" style="margin-top:70px">Food List</h1>
+
+        <div class="col-12">
+            <table class="table text-center">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">食料</th>
+                    <th scope="col">カロリー</th>
+                    <th scope="col">量</th>
+                    <th scope="col">編集</th>
+                    <th scope="col">消す</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for food in food_items %}
+                    <tr style="font-size: 18px;">
+                        <td  style="font-weight: 600;">{{ food.name }}</td>
+                        <td>{{ food.calorie }}</td>
+                        <td>{{ food.quantity }}</td>
+                        <td><a class="btn btn-sm btn-info" href="{% url 'update_food' food.id %}">アップデート</a></td>
+                        <td><a class="btn btn-sm " href="{% url 'delete_food' food.id %}">編集</a></td>
+
+
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% else %}
+    <h1>You have to login first</h1>
+    <a class="nav-link" href="{% url 'login' %}">Login</a>
+{% endif %}
+</div>
+</body>
+
+</html>

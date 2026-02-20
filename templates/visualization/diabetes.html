@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Diabetes - Visualization</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdn.bokeh.org/bokeh/release/bokeh-2.2.1.min.js"></script>
+    <style>
+        p{
+            font-size: 18px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+{% include "home/navbar.html" %}
+{% block content %}
+<div class="main">
+<div class="container">
+    <div class="row">
+        <h3>Data description:</h3>
+        <ol>
+            <li>Title: Pima Indians Diabetes Database</li>
+            <li>Sources: (a) Original owners: National Institute of Diabetes and Digestive and Kidney Diseases (b) Donor of database: Vincent Sigillito (vgs@aplcen.apl.jhu.edu) Research Center, RMI Group Leader Applied Physics Laboratory The Johns Hopkins University Johns Hopkins Road Laurel, MD 20707 (301) 953-6231 (c) Date received: 9 May 1990</li>
+            <li>Relevant Information: Several constraints were placed on the selection of these instances from a larger database. In particular, all patients here are females at least 21 years old of Pima Indian heritage. ADAP is an adaptive learning routine that generates and executes digital analogs of perceptron-like devices. It is a unique algorithm; see the paper for details.</li>
+            <li>Number of Instances: 768</li>
+            <li>Number of Attributes: 8 plus class</li>
+            <li>Data source: <a href="https://datahub.io/machine-learning/diabetes#readme">https://datahub.io/machine-learning/diabetes#readme</a></li>
+        </ol>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            {{ div_tested | safe }}
+            {{ script_tested | safe }}
+            <p>In this dataset, the number of people who is tested negative is higher than people having positive test.</p>
+        </div>
+        <div class="col-sm-6">
+            {{ div_age | safe }}
+            {{ script_age | safe }}
+            <p>The number of elderly people participating in testing is more than that of young people.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            {{ div_insu | safe }}
+            {{ script_insu | safe }}
+            <p>The relationship between age groups and insulin rate. As can be seen, the insulin rate subtly gets higher with older age.</p>
+        </div>
+        <div class="col-sm-6">
+            {{ div_stacked | safe }}
+            {{ script_stacked | safe }}
+            <p>Does the BMI (Body Mass Index) can indicate the presence of diabetes in a body? When looking at the graph, it can be seen that the healthy BMI range does not have as much diabetes-positive number as overweight and obese BMI range.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            {{ div_dist | safe }}
+            {{ script_dist | safe }}
+            <p>Even though from the graph it seems like that older ages have less tested positive participants, however, it might be biased by the dataset age distribution. </p>
+        </div>
+{#        <div class="col-sm-6">#}
+{#            {{ div_line | safe }}#}
+{#            {{ script_line | safe }}#}
+{#        </div>#}
+    </div>
+</div>
+{% endblock %}
+</div>
+</body>
+
+</html>
